@@ -48,7 +48,7 @@ globalLibraries:
         modernSCM:
           scm:
             git:
-              remote: "git@github.com:<org>/jenkins-apify-lib.git"
+              remote: "git@github.com:QuickLifeSolutions/jenkins-apify-lib.git"
               credentialsId: "github-token"
       defaultVersion: "main"
       allowVersionOverride: false
