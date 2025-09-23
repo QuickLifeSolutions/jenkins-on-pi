@@ -1,0 +1,10 @@
+workflow-aggregator
+git
+github-branch-source
+credentials-binding
+lockable-resources
+job-dsl
+configuration-as-code
+timestamper
+ansicolor
+docker-workflow

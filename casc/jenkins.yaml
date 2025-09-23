@@ -1,0 +1,84 @@
+jenkins:
+  systemMessage: "Apify Actors CI/CD — Managed by JCasC"
+  numExecutors: 2
+  mode: NORMAL
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "admin"
+          password: "${ADMIN_PASSWORD}"
+
+unclassified:
+  location:
+    url: "http://<pi-host>:8080/"
+  gitHubConfiguration:
+    endpoints:
+      - name: "github"
+        apiUri: "https://api.github.com"
+        credentialsId: "github-token"
+
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - string:
+              id: "github-token"
+              scope: GLOBAL
+              description: "GitHub PAT: repo, admin:repo_hook"
+              secret: "${GITHUB_TOKEN}"
+          - string:
+              id: "apify-token-dev"
+              scope: GLOBAL
+              description: "APIFY_TOKEN (DEV)"
+              secret: "${APIFY_TOKEN_DEV}"
+          - string:
+              id: "apify-token-prod"
+              scope: GLOBAL
+              description: "APIFY_TOKEN (PROD)"
+              secret: "${APIFY_TOKEN_PROD}"
+
+globalLibraries:
+  libraries:
+    - name: "apify-lib"
+      retriever:
+        modernSCM:
+          scm:
+            git:
+              remote: "git@github.com:<org>/jenkins-apify-lib.git"
+              credentialsId: "github-token"
+      defaultVersion: "main"
+      allowVersionOverride: false
+
+tool:
+  git:
+    installations:
+      - name: "git"
+        home: "/usr/bin/git"
+
+jobs:
+  - script: |
+      organizationFolder('apify-actors') {
+        displayName('Apify Actors')
+        organizations {
+          github {
+            repoOwner('<org>')
+            credentialsId('github-token')
+            traits {
+              gitHubBranchDiscovery()
+              gitHubTagDiscovery()
+              gitHubPullRequestDiscovery()
+              gitHubExcludeArchivedRepositories()
+              sourceWildcardsFilter { includes('*'); excludes('') }
+              gitHubTopicsFilter { includes('apify-actor') }
+            }
+          }
+        }
+        projectFactories { workflowMultiBranchProjectFactory { scriptPath('ci/Jenkinsfile') } }
+        buildStrategies { buildRegularBranches(); buildChangeRequests(); buildTags() }
+        orphanedItemStrategy { discardOldItems { daysToKeep(30); numToKeep(60) } }
+        triggers { periodic(1) }
+      }
