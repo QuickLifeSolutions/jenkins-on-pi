@@ -1,9 +1,7 @@
 version: "3.9"
 services:
   jenkins:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: melamchk/jenkins-on-pi:latest
     container_name: jenkins
     ports:
       - "8080:8080"

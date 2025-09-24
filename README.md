@@ -2,6 +2,8 @@
 
 Compose stack for Jenkins with JCasC and GitHub Organization Folder discovery.
 
+Published image: `melamchk/jenkins-on-pi:latest` (Docker Hub).
+
 ## Required environment
 
 Set the `<pi-host>` placeholder in `casc/jenkins.yaml` (organization defaults to `QuickLifeSolutions`), then provide the following variables (via Portainer, `.env`, or your orchestrator):
