@@ -92,7 +92,6 @@ jobs:
             scriptPath('ci/Jenkinsfile')
           }
         }
-        buildStrategies { buildRegularBranches(); buildChangeRequests(); buildTags() }
         orphanedItemStrategy { discardOldItems { daysToKeep(30); numToKeep(60) } }
         triggers { periodic(1) }
       }
