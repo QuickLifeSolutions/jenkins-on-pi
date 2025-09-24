@@ -19,7 +19,6 @@ unclassified:
     endpoints:
       - name: "github"
         apiUri: "https://api.github.com"
-        credentialsId: "github-token"
 
 credentials:
   system:
@@ -77,7 +76,11 @@ jobs:
             }
           }
         }
-        projectFactories { workflowMultiBranchProjectFactory { scriptPath('ci/Jenkinsfile') } }
+        projectFactories {
+          workflowMultiBranchProjectFactory {
+            scriptPath('ci/Jenkinsfile')
+          }
+        }
         buildStrategies { buildRegularBranches(); buildChangeRequests(); buildTags() }
         orphanedItemStrategy { discardOldItems { daysToKeep(30); numToKeep(60) } }
         triggers { periodic(1) }
