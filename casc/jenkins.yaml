@@ -68,8 +68,15 @@ jobs:
             credentialsId('github-token')
             traits {
               gitHubExcludeArchivedRepositories()
-              sourceWildcardsFilter { includes('*'); excludes('') }
-              gitHubTopicsFilter { includes('apify-actor') }
+            }
+            projectRecognizers {
+              primaryBranch()
+            }
+            buildStrategies {
+              buildRegularBranches()
+              buildChangeRequests { ignoreTargetOnlyChanges = true }
+              buildTags()
+            }
             }
           }
         }
