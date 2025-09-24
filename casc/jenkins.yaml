@@ -40,7 +40,7 @@ credentials:
               id: "github-token"
               scope: GLOBAL
               description: "GitHub PAT: repo, admin:repo_hook"
-              username: "${GITHUB_USERNAME}"
+              username: "x-access-token"
               password: "${GITHUB_TOKEN}"
           - string:
               id: "apify-token-dev"

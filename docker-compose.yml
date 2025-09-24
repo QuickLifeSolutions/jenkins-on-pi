@@ -13,7 +13,6 @@ services:
       - JAVA_OPTS=-Djenkins.install.runSetupWizard=false -Djenkins.winstone.http2=false
       - CASC_JENKINS_CONFIG=/usr/share/jenkins/ref/casc/jenkins.yaml
       - ADMIN_PASSWORD=${ADMIN_PASSWORD}
-      - GITHUB_USERNAME=${GITHUB_USERNAME}
       - GITHUB_TOKEN=${GITHUB_TOKEN}
       - APIFY_TOKEN_DEV=${APIFY_TOKEN_DEV}
       - APIFY_TOKEN_PROD=${APIFY_TOKEN_PROD}
