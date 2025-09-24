@@ -8,3 +8,5 @@ configuration-as-code
 timestamper
 ansicolor
 docker-workflow
+workflow-cps-global-lib
+ws-cleanup

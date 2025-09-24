@@ -20,6 +20,18 @@ unclassified:
       - name: "github"
         apiUri: "https://api.github.com"
 
+  globalLibraries:
+    libraries:
+      - name: "apify-lib"
+        retriever:
+          modernSCM:
+            scm:
+              git:
+                remote: "https://github.com/QuickLifeSolutions/jenkins-apify-lib.git"
+                credentialsId: "github-token"
+        defaultVersion: "main"
+        allowVersionOverride: false
+
 credentials:
   system:
     domainCredentials:
@@ -39,18 +51,6 @@ credentials:
               scope: GLOBAL
               description: "APIFY_TOKEN (PROD)"
               secret: "${APIFY_TOKEN_PROD}"
-
-globalLibraries:
-  libraries:
-    - name: "apify-lib"
-      retriever:
-        modernSCM:
-          scm:
-            git:
-              remote: "git@github.com:QuickLifeSolutions/jenkins-apify-lib.git"
-              credentialsId: "github-token"
-      defaultVersion: "main"
-      allowVersionOverride: false
 
 tool:
   git:
