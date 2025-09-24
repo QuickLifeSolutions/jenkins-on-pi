@@ -67,9 +67,9 @@ jobs:
             repoOwner('<org>')
             credentialsId('github-token')
             traits {
-              gitHubBranchDiscovery { strategyId(3) }
-              gitHubTagDiscovery { strategyId(1) }
-              gitHubPullRequestDiscovery { strategyId(3) }
+              gitHubBranchDiscovery { strategyId = 3 }
+              gitHubTagDiscovery { strategyId = 1 }
+              gitHubPullRequestDiscovery { strategyId = 3 }
               gitHubExcludeArchivedRepositories()
               sourceWildcardsFilter { includes('*'); excludes('') }
               gitHubTopicsFilter { includes('apify-actor') }
