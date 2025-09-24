@@ -4,7 +4,7 @@ Compose stack for Jenkins with JCasC and GitHub Organization Folder discovery.
 
 ## Required environment
 
-Set `<org>` and `<pi-host>` placeholders in `casc/jenkins.yaml`, then provide the following variables (via Portainer, `.env`, or your orchestrator):
+Set the `<pi-host>` placeholder in `casc/jenkins.yaml` (organization defaults to `QuickLifeSolutions`), then provide the following variables (via Portainer, `.env`, or your orchestrator):
 
 - `ADMIN_PASSWORD` — initial Jenkins admin password.
 - `GITHUB_TOKEN` — PAT with `repo` + `admin:repo_hook`, used for the shared library and automated pushes (username defaults to `x-access-token`).

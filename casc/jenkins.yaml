@@ -61,11 +61,11 @@ tool:
 
 jobs:
   - script: |
-      organizationFolder('apify-actors') {
-        displayName('Apify Actors')
+      organizationFolder('QuickLifeSolutions') {
+        displayName('QuickLifeSolutions')
         organizations {
           github {
-            repoOwner('<org>')
+            repoOwner('QuickLifeSolutions')
             credentialsId('github-token')
             traits {
               gitHubExcludeArchivedRepositories()
