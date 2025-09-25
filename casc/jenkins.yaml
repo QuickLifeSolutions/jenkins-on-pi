@@ -84,9 +84,6 @@ jobs:
               def wildcardFilter = traits.appendNode('jenkins.plugins.git.traits.WildcardSCMHeadFilterTrait')
               wildcardFilter.appendNode('includes', '*')
               wildcardFilter.appendNode('excludes', '')
-              def topicsFilter = traits.appendNode('org.jenkinsci.plugins.github_branch_source.TopicsTrait')
-              topicsFilter.appendNode('includes', 'apify-actor')
-              topicsFilter.appendNode('excludes', '')
             }
           }
         }
