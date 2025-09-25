@@ -72,18 +72,13 @@ jobs:
             credentialsId('github-token')
             traits {
               gitHubExcludeArchivedRepositories()
-            }
-            configure { navigator ->
-              def traits = navigator / 'traits'
-              traits.children().clear()
-              def branchDiscovery = traits.appendNode('org.jenkinsci.plugins.github_branch_source.BranchDiscoveryTrait')
-              branchDiscovery.appendNode('strategyId', 3)
-              traits.appendNode('org.jenkinsci.plugins.github_branch_source.TagDiscoveryTrait')
-              def prDiscovery = traits.appendNode('org.jenkinsci.plugins.github_branch_source.PullRequestDiscoveryTrait')
-              prDiscovery.appendNode('strategyId', 3)
-              def wildcardFilter = traits.appendNode('jenkins.plugins.git.traits.WildcardSCMHeadFilterTrait')
-              wildcardFilter.appendNode('includes', '*')
-              wildcardFilter.appendNode('excludes', '')
+              gitHubBranchDiscovery { strategyId(3) }
+              gitHubTagDiscovery()
+              gitHubPullRequestDiscovery { strategyId(3) }
+              sourceWildcardFilter {
+                includes('*')
+                excludes('')
+              }
             }
           }
         }
