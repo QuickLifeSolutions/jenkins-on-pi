@@ -2,6 +2,9 @@ jenkins:
   systemMessage: "Apify Actors CI/CD — Managed by JCasC"
   numExecutors: 2
   mode: NORMAL
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: true
   authorizationStrategy:
     loggedInUsersCanDoAnything:
       allowAnonymousRead: false
