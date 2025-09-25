@@ -10,6 +10,7 @@ services:
       - TZ=Asia/Kolkata
       - JAVA_OPTS=-Djenkins.install.runSetupWizard=false -Djenkins.winstone.http2=false
       - CASC_JENKINS_CONFIG=/usr/share/jenkins/ref/casc/jenkins.yaml
+      - JENKINS_URL=${JENKINS_URL}
       - ADMIN_PASSWORD=${ADMIN_PASSWORD}
       - GITHUB_TOKEN=${GITHUB_TOKEN}
       - APIFY_TOKEN_DEV=${APIFY_TOKEN_DEV}

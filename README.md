@@ -10,6 +10,7 @@ Set the `<pi-host>` placeholder in `casc/jenkins.yaml` (organization defaults to
 
 - `ADMIN_PASSWORD` — initial Jenkins admin password.
 - `GITHUB_TOKEN` — PAT with `repo` + `admin:repo_hook`, used for the shared library and automated pushes (username defaults to `x-access-token`).
+- `JENKINS_URL` — externally reachable base URL for the controller (e.g. `https://jenkins.example.com/`).
 - `APIFY_TOKEN_DEV` / `APIFY_TOKEN_PROD` — deployment credentials consumed by the shared library.
 - `DOCKER_GID` — host Docker group id (e.g. `$(getent group docker | cut -d: -f3)`) so the non-root `jenkins` user can access `/var/run/docker.sock`.
 

@@ -14,7 +14,7 @@ jenkins:
 
 unclassified:
   location:
-    url: "http://localhost:8080/"
+    url: "${JENKINS_URL}"
   gitHubConfiguration:
     endpoints:
       - name: "github"
