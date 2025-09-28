@@ -2,6 +2,27 @@ jenkins:
   systemMessage: "Apify Actors CI/CD — Managed by JCasC"
   numExecutors: 2
   mode: NORMAL
+  nodes:
+    - permanent:
+        name: "aws-ec2"
+        description: "AWS EC2 Ubuntu agent"
+        remoteFS: "/opt/jenkins"
+        labelString: "aws-ec2"
+        numExecutors: 1
+        mode: NORMAL
+        retentionStrategy:
+          always:
+            checkInterval: 1
+        launcher:
+          ssh:
+            host: "13.200.56.3"
+            port: 22
+            credentialsId: "aws-ec2-agent"
+            launchTimeoutSeconds: 210
+            maxNumRetries: 10
+            retryWaitTime: 30
+            sshHostKeyVerificationStrategy:
+              nonVerifyingKeyVerificationStrategy: {}
   crumbIssuer:
     standard:
       excludeClientIPFromCrumb: true
@@ -55,6 +76,13 @@ credentials:
               scope: GLOBAL
               description: "APIFY_TOKEN (PROD)"
               secret: "${APIFY_TOKEN_PROD}"
+          - basicSSHUserPrivateKey:
+              id: "aws-ec2-agent"
+              scope: GLOBAL
+              description: "SSH key for AWS EC2 Jenkins agent"
+              username: "ubuntu"
+              privateKeySource:
+                directEntry: "${AWS_EC2_AGENT_PRIVATE_KEY}"
 
 tool:
   git:
