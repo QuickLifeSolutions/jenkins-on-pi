@@ -15,8 +15,10 @@ services:
       - GITHUB_TOKEN=${GITHUB_TOKEN}
       - APIFY_TOKEN_DEV=${APIFY_TOKEN_DEV}
       - APIFY_TOKEN_PROD=${APIFY_TOKEN_PROD}
+      - AWS_EC2_AGENT_PRIVATE_KEY=${AWS_EC2_AGENT_PRIVATE_KEY}
     volumes:
       - jenkins_home:/var/jenkins_home
+      - ./casc:/usr/share/jenkins/ref/casc:ro
       - /var/run/docker.sock:/var/run/docker.sock
     group_add:
       - "${DOCKER_GID:-998}"

@@ -13,5 +13,6 @@ Set the `<pi-host>` placeholder in `casc/jenkins.yaml` (organization defaults to
 - `JENKINS_URL` — externally reachable base URL for the controller (e.g. `https://jenkins.example.com/`).
 - `APIFY_TOKEN_DEV` / `APIFY_TOKEN_PROD` — deployment credentials consumed by the shared library.
 - `DOCKER_GID` — host Docker group id (e.g. `$(getent group docker | cut -d: -f3)`) so the non-root `jenkins` user can access `/var/run/docker.sock`.
+- `AWS_EC2_AGENT_PRIVATE_KEY` — PEM-formatted private key Jenkins uses to reach the AWS EC2 SSH agent (multi-line value, including BEGIN/END markers).
 
 Redeploying the stack will reconcile any manual Portainer edits with these declarative settings.
