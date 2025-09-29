@@ -2,7 +2,7 @@
 
 Compose stack for Jenkins with JCasC and GitHub Organization Folder discovery.
 
-Published image: `melamchk/jenkins-on-pi:latest` (Docker Hub).
+Published image: `melamchk/jenkins-on-pi:1.2.0` (Docker Hub).
 
 ## Required environment
 
