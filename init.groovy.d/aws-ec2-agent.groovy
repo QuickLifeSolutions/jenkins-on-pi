@@ -4,7 +4,7 @@ import com.cloudbees.plugins.credentials.impl.*
 import jenkins.model.Jenkins
 
 final String credentialId = "aws-ec2-agent"
-final File keyFile = new File("/var/jenkins_home/secrets/aws_ec2_agent_key")
+final File keyFile = new File("/var/jenkins_home/secrets/jenkins-agent")
 
 if (!keyFile.exists()) {
     println "[init] EC2 key file not found at ${keyFile.absolutePath}; skipping credential provisioning"
