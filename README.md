@@ -14,6 +14,6 @@ Set the `<pi-host>` placeholder in `casc/jenkins.yaml` (organization defaults to
 - `APIFY_TOKEN_DEV` / `APIFY_TOKEN_PROD` — deployment credentials consumed by the shared library.
 - `DOCKER_GID` — host Docker group id (e.g. `$(getent group docker | cut -d: -f3)`) so the non-root `jenkins` user can access `/var/run/docker.sock`.
 
-Store the EC2 agent key on the host as `/home/chaithupi5/.ssh/jenkins-agent` (mode `600`). The compose file mounts the entire `.ssh` directory into the container at `/var/jenkins_home/secrets`, and the init script reads `/var/jenkins_home/secrets/jenkins-agent` to provision the `aws-ec2-agent` credential on startup.
+Store the EC2 agent key on the host as `/home/chaithupi5/.ssh/jenkins-agent` (mode `600`). The compose file bind-mounts this file into the container at `/var/jenkins_home/external-keys/jenkins-agent` (read-only), and the init script reads it to provision the `aws-ec2-agent` credential at startup.
 
 Redeploying the stack will reconcile any manual Portainer edits with these declarative settings.
