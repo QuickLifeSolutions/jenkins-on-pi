@@ -11,5 +11,6 @@ COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt
 # Bake JCasC and set path
 COPY casc /usr/share/jenkins/ref/casc
+COPY init.groovy.d /usr/share/jenkins/ref/init.groovy.d
 ENV CASC_JENKINS_CONFIG=/usr/share/jenkins/ref/casc/jenkins.yaml
 USER jenkins

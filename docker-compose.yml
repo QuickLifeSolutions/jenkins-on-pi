@@ -18,7 +18,8 @@ services:
     volumes:
       - jenkins_home:/var/jenkins_home
       - ./casc:/usr/share/jenkins/ref/casc:ro
-      - /opt/jenkins/secrets/jenkins_agent:/var/jenkins_home/secrets/aws_ec2_agent_key:ro
+      - ./init.groovy.d:/usr/share/jenkins/ref/init.groovy.d:ro
+      - /home/chaithupi5/.ssh/jenkins-agent:/var/jenkins_home/secrets/aws_ec2_agent_key:ro
       - /var/run/docker.sock:/var/run/docker.sock
     group_add:
       - "${DOCKER_GID:-998}"

@@ -76,13 +76,6 @@ credentials:
               scope: GLOBAL
               description: "APIFY_TOKEN (PROD)"
               secret: "${APIFY_TOKEN_PROD}"
-          - basicSSHUserPrivateKey:
-              id: "aws-ec2-agent"
-              scope: GLOBAL
-              description: "SSH key for AWS EC2 Jenkins agent"
-              username: "ubuntu"
-              privateKeySource:
-                fileOnMaster: "/var/jenkins_home/secrets/aws_ec2_agent_key"
 
 tool:
   git:
