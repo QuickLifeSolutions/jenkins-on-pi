@@ -82,7 +82,7 @@ credentials:
               description: "SSH key for AWS EC2 Jenkins agent"
               username: "ubuntu"
               privateKeySource:
-                directEntry: "${AWS_EC2_AGENT_PRIVATE_KEY}"
+                directEntryFromFile: "${AWS_EC2_AGENT_PRIVATE_KEY_FILE}"
 
 tool:
   git:
